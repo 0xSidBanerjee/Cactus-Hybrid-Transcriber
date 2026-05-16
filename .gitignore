@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Specific
+cactus_transcriber_poc_spec.md
+audio/
+weights/
+build/
