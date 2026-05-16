@@ -1,68 +1,69 @@
-# Cactus Hybrid Transcriber
+# 🌵 Cactus Hybrid Transcriber (POC)
 
-A minimal, high-performance web application demonstrating hybrid speech-to-text transcription using the **Cactus Engine**. The application automatically routes audio processing between on-device inference and Cactus Cloud based on audio quality and complexity.
+A high-performance, hybrid speech-to-text proof-of-concept that seamlessly blends on-device inference with cloud fallback. Built with **FastAPI** and **React + Vite**, utilizing the **Cactus ASR Engine** for privacy-first, low-latency transcription.
+
+---
 
 ## 🚀 Overview
 
-- **On-Device First**: Transcribes clean audio locally using optimized models (e.g., `parakeet-ctc-1.1b`).
-- **Seamless Fallback**: Automatically hands off noisy or complex audio to Cactus Cloud for maximum accuracy.
-- **Real-time Feedback**: Visual badges indicate exactly where your data was processed.
+Cactus Hybrid Transcriber is designed to demonstrate a "Local-First" approach to speech recognition. It prioritizes on-device processing to ensure data privacy and zero latency, while providing an architectural path for cloud handoff when high-accuracy or complex audio processing is required.
+
+### Key Features
+- **On-Device Inference**: Utilizes the local Cactus engine for immediate transcription.
+- **Hybrid Routing**: Intelligent logic (POC) to distinguish between local and cloud-processed results.
+- **Modern Tech Stack**: FastAPI backend for speed, React frontend for a premium user experience.
+- **Privacy Centric**: Audio stays local unless cloud handoff is explicitly configured.
 
 ## 🛠 Tech Stack
 
-### Backend
-- **FastAPI**: Async Python web framework.
-- **Cactus SDK**: Hybrid transcription engine.
-- **Uvicorn**: High-performance ASGI server.
+- **Frontend**: React 18, Vite, Vanilla CSS (Glassmorphism inspired)
+- **Backend**: FastAPI (Python 3.9+), Uvicorn
+- **Engine**: [Cactus ASR](https://www.cactuscompute.com/)
+- **Interconnect**: RESTful API with multipart/form-data support
 
-### Frontend
-- **React + Vite**: Fast, modern frontend development.
-- **Vanilla CSS**: Clean, premium design without extra weight.
-
-## 📂 Project Structure
-
-```text
-cactus-transcriber/
-├── backend/            # FastAPI source code
-│   ├── main.py         # Application entry point
-│   ├── requirements.txt
-│   └── .env            # Environment variables (Cactus API Key)
-├── frontend/           # React frontend (Coming soon)
-├── audio/              # Sample audio files for testing
-├── .gitignore
-└── README.md
-```
-
-## ⚙️ Setup & Installation
+## 📥 Installation
 
 ### Prerequisites
-- Python 3.11+
-- [Cactus CLI](https://cactuscompute.com) installed and configured.
+- Python 3.9+
+- Node.js 18+
+- [Cactus CLI](https://www.cactuscompute.com/docs/install) installed and available in your system path.
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the server:
-   ```bash
-   uvicorn main:app --reload --port 8000
-   ```
+### 1. Clone the repository
+```bash
+git clone https://github.com/0xSidBanerjee/Cactus-Hybrid-Transcriber.git
+cd Cactus-Hybrid-Transcriber
+```
 
-## 📈 Roadmap & Milestones
+### 2. Backend Setup
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
 
-- [x] **M1: Cactus CLI Integration** — Verified local transcription engine.
-- [x] **M2: Backend Skeleton** — FastAPI setup with health checks and CORS.
-- [x] **M3: Transcription Endpoint** — `POST /transcribe` integration.
-- [x] **M4: Frontend Scaffolding** — React + Vite setup.
-- [x] **M5: Upload Logic** — Frontend to Backend file handling.
-- [x] **M6: Result Visualization** — Transcript display and routing badges.
-- [x] **M7: E2E Testing** — End-to-end validation with hybrid routing.
-- [x] **M8: Polish** — UI refinements and error handling.
+### 3. Frontend Setup
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+## 🧪 Usage & Testing
+
+1. Open the web interface.
+2. Drag and drop or click to upload an audio file (`.wav`, `.mp3`, `.m4a`, `.ogg`).
+3. Click **Transcribe**.
+4. View the result, processing latency, and the routing badge (On-device vs. Cloud).
+
+> [!NOTE]
+> This is a **Proof of Concept**. Cloud fallback requires a valid `CACTUS_CLOUD_KEY` to be configured in your environment. Without a key, all processing remains strictly local.
 
 ## 📄 License
-Internal POC - RS Software Demo.
+
+This project is licensed under the **MIT License**. 
+
+---
+
+Built with ☕️ for high-performance audio processing.
