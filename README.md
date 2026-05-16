@@ -59,7 +59,7 @@ cactus-transcriber/
 - [x] **M2: Backend Skeleton** — FastAPI setup with health checks and CORS.
 - [x] **M3: Transcription Endpoint** — `POST /transcribe` integration.
 - [x] **M4: Frontend Scaffolding** — React + Vite setup.
-- [ ] **M5: Upload Logic** — Frontend to Backend file handling.
+- [x] **M5: Upload Logic** — Frontend to Backend file handling.
 - [ ] **M6: Result Visualization** — Transcript display and routing badges.
 - [ ] **M7: E2E Testing** — End-to-end validation with hybrid routing.
 - [ ] **M8: Polish** — UI refinements and error handling.
