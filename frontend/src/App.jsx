@@ -16,6 +16,22 @@ function App() {
     }
   }
 
+  const handleDragOver = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
+  const handleDrop = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    const droppedFile = e.dataTransfer.files[0]
+    if (droppedFile) {
+      setFile(droppedFile)
+      setResult(null)
+      setError(null)
+    }
+  }
+
   const handleUpload = async () => {
     if (!file) return
 
@@ -53,7 +69,12 @@ function App() {
 
       <div 
         className="drop-zone" 
-        onClick={() => fileInputRef.current?.click()}
+        onClick={() => {
+          if (fileInputRef.current) fileInputRef.current.value = ''
+          fileInputRef.current?.click()
+        }}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
       >
         <input 
           type="file" 
@@ -80,8 +101,8 @@ function App() {
 
       {result && (
         <div className="result-section">
-          <div className="transcript-box">
-            {result.transcript}
+          <div className={`transcript-box ${!result.transcript ? 'empty' : ''}`}>
+            {result.transcript || 'No speech detected in this audio file.'}
           </div>
           
           <div className="result-meta">

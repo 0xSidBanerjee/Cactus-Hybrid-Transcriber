@@ -40,8 +40,9 @@ body {
   transition: border-color 0.2s;
 }
 
-.drop-zone:hover {
+.drop-zone:hover, .drop-zone.active {
   border-color: #888;
+  background: #252525;
 }
 
 .drop-zone p {
@@ -95,6 +96,12 @@ button:hover:not(:disabled) {
   margin-top: 1.5rem;
   white-space: pre-wrap;
   text-align: left;
+}
+
+.transcript-box.empty {
+  color: #888;
+  font-style: italic;
+  text-align: center;
 }
 
 .result-meta {

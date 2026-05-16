@@ -65,12 +65,12 @@ async def transcribe(file: UploadFile = File(...)):
         stdout = process.stdout
         
         # 4. Parse the output
-        # Transcript: after "Transcribing: <filename>"
-        # Using a regex that handles both same-line and next-line transcript
-        transcript_match = re.search(r"Transcribing:.*?\n\s*(.*)", stdout, re.MULTILINE)
+        # We look for everything between "Transcribing: <filename>" and the first metadata block "["
+        # This handles transcripts on the same line OR the next lines, but stops at metadata.
+        transcript_match = re.search(r"Transcribing:.*?\s{2,}(.*?)(?=\s*\[)", stdout, re.DOTALL)
         if not transcript_match:
-            # Fallback to the same-line format described in the task
-            transcript_match = re.search(r"Transcribing:.*?\s\s+(.*)", stdout)
+            # Try matching across newlines if not on the same line
+            transcript_match = re.search(r"Transcribing:[^\n]*\n\s*(.*?)(?=\s*\[)", stdout, re.DOTALL)
         
         transcript = transcript_match.group(1).strip() if transcript_match else ""
 

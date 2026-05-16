@@ -61,8 +61,8 @@ cactus-transcriber/
 - [x] **M4: Frontend Scaffolding** — React + Vite setup.
 - [x] **M5: Upload Logic** — Frontend to Backend file handling.
 - [x] **M6: Result Visualization** — Transcript display and routing badges.
-- [ ] **M7: E2E Testing** — End-to-end validation with hybrid routing.
-- [ ] **M8: Polish** — UI refinements and error handling.
+- [x] **M7: E2E Testing** — End-to-end validation with hybrid routing.
+- [x] **M8: Polish** — UI refinements and error handling.
 
 ## 📄 License
 Internal POC - RS Software Demo.
