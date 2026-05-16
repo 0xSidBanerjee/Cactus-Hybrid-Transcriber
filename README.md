@@ -57,7 +57,7 @@ cactus-transcriber/
 
 - [x] **M1: Cactus CLI Integration** — Verified local transcription engine.
 - [x] **M2: Backend Skeleton** — FastAPI setup with health checks and CORS.
-- [ ] **M3: Transcription Endpoint** — `POST /transcribe` integration.
+- [x] **M3: Transcription Endpoint** — `POST /transcribe` integration.
 - [ ] **M4: Frontend Scaffolding** — React + Vite setup.
 - [ ] **M5: Upload Logic** — Frontend to Backend file handling.
 - [ ] **M6: Result Visualization** — Transcript display and routing badges.
